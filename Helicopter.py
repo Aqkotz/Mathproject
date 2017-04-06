@@ -9,10 +9,6 @@ def Atan(a):
 
 E = float(input("Please input E: "))
 A = float(input("Please input A: "))
-if A >= 180:
-    A -= 180
-if A >= 270:
-    A -= 90
 Z = float(input("Please input Z: "))
 Lpos = input("Please input position of L in the form x,y (no parentheses): ")
 print("")
@@ -23,20 +19,22 @@ Ly = float(Lpos[1])
 
 TP = (1/(Tan(90-E)))*Z
 Px = Cos(A)*TP
-Py = sqrt(TP*TP - Px*Px)
+Py = Tan(A)*Px
+print (Px)
+print (Py)
+print ("")
 LPy = Py - Ly
 LPx = Px - Lx
 LP = sqrt(LPx*LPx + LPy*LPy)
 
-AZIM = Atan(LPy/LPx)
-if A >= 90:
+AZIM = Atan((Ly-Py)/(Lx-Px))
+if Px < 0 and Py > 0:
     AZIM += 180
-if A >= 180:
-    AZIM += 90
-if A >= 270:
-    AZIM += 90
-if AZIM >= 360:
-    AZIM -= 360
+if Px < 0 and Py < 0:
+    AZIM -= 180
+if Px > 0 and Py < 0:
+    print ("bhgtinvt")
+    AZIM += 360
 print ("AZIM is " + str(AZIM))
 
 ELEV = 90 - Atan((Z-61)/LP)
