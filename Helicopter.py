@@ -9,6 +9,10 @@ def Atan(a):
 
 E = float(input("Please input E: "))
 A = float(input("Please input A: "))
+if A >= 180:
+    A -= 180
+if A >= 270:
+    A -= 90
 Z = float(input("Please input Z: "))
 Lpos = input("Please input position of L in the form x,y (no parentheses): ")
 print("")
