@@ -1,5 +1,4 @@
 #Helicopter Math Project
-#Helicopter Math Project
 from math import cos, tan, atan, radians, degrees, sqrt
 def Cos(a):
     return cos(radians(a))
@@ -27,12 +26,6 @@ LPx = Px - Lx
 LP = sqrt(LPx*LPx + LPy*LPy)
 
 AZIM = Atan(LPy/LPx)
-if A >= 90:
-    AZIM += 90
-if A >= 180:
-    AZIM += 90
-if A >= 270:
-    AZIM += 90
 print ("AZIM is " + str(AZIM))
 
 ELEV = 90 - Atan((Z-61)/LP)
