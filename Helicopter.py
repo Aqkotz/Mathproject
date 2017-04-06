@@ -1,10 +1,8 @@
 #Helicopter Math Project
 #Helicopter Math Project
-from math import sin, cos, tan, atan, acos, asin, radians, degrees, sqrt
+from math import cos, tan, atan, radians, degrees, sqrt
 def Cos(a):
     return cos(radians(a))
-def Sin(a):
-    return sin(radians(a))
 def Tan(a):
     return tan(radians(a))
 def Atan(a):
