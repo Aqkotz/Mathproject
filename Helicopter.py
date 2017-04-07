@@ -20,9 +20,6 @@ Ly = float(Lpos[1])
 TP = (1/(Tan(90-E)))*Z
 Px = Cos(A)*TP
 Py = Tan(A)*Px
-print (Px)
-print (Py)
-print ("")
 LPy = Py - Ly
 LPx = Px - Lx
 LP = sqrt(LPx*LPx + LPy*LPy)
@@ -31,9 +28,8 @@ AZIM = Atan((Ly-Py)/(Lx-Px))
 if Px < 0 and Py > 0:
     AZIM += 180
 if Px < 0 and Py < 0:
-    AZIM -= 180
+    AZIM += 180
 if Px > 0 and Py < 0:
-    print ("bhgtinvt")
     AZIM += 360
 print ("AZIM is " + str(AZIM))
 
