@@ -20,17 +20,21 @@ Ly = float(Lpos[1])
 TP = (1/(Tan(90-E)))*Z
 Px = Cos(A)*TP
 Py = Tan(A)*Px
-LPy = Py - Ly
-LPx = Px - Lx
-LP = sqrt(LPx*LPx + LPy*LPy)
+N = Py - Ly
+D = Px - Lx
+LP = sqrt(D*D + N*N)
 
-AZIM = Atan((Ly-Py)/(Lx-Px))
-if Px < 0 and Py > 0:
+AZIM = Atan(N/D)
+if D < 0:
     AZIM += 180
-if Px < 0 and Py < 0:
-    AZIM += 180
-if Px > 0 and Py < 0:
+if D > 0 and N < 0:
     AZIM += 360
+if D == 0 and N != 0:
+    AZIM = 90
+if D != 0 and N == 0:
+    AZIM = 180
+if D == 0 and N == 0:
+    AZIM = 0
 print ("AZIM is " + str(AZIM))
 
 ELEV = 90 - Atan((Z-61)/LP)
