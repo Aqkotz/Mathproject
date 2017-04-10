@@ -1,5 +1,5 @@
 #Helicopter Math Project
-from math import cos, tan, atan, radians, degrees, sqrt
+from math import cos, tan, atan, radians, degrees, sqrt, pow
 def Cos(a):
     return cos(radians(a))
 def Tan(a):
@@ -29,12 +29,16 @@ if D < 0:
     AZIM += 180
 if D > 0 and N < 0:
     AZIM += 360
-if D == 0 and N != 0:
+if D == 0 and N > 0:
     AZIM = 90
-if D != 0 and N == 0:
+if D == 0 and N < 0:
+    AZIM = 270
+if D < 0 and N == 0:
     AZIM = 180
-if D == 0 and N == 0:
+if D > 0 and N == 0:
     AZIM = 0
+if D == 0 and N == 0:
+    AZIM = "undefined"
 print ("AZIM is " + str(AZIM))
 
 ELEV = 90 - Atan((Z-61)/LP)
