@@ -7,6 +7,9 @@ def Tan(a):
 def Atan(a):
     return degrees(atan(a))
 
+print ("Andy and Andrew Helicopter project program:")
+print ("")
+print ("Inputs:")
 E = float(input("Please input E: "))
 A = float(input("Please input A: "))
 Z = float(input("Please input Z: "))
@@ -25,11 +28,12 @@ D = Px - Lx
 LP = sqrt(D*D + N*N)
 
 AZIMT = True
-AZIM = Atan(N/D)
+if D > 0 and N > 0:
+    AZIM = Atan(N/D)
 if D < 0:
-    AZIM += 180
+    AZIM = Atan(N/D) + 180
 if D > 0 and N < 0:
-    AZIM += 360
+    AZIM = Atan(N/D) + 360
 if D == 0 and N > 0:
     AZIM = 90
 if D == 0 and N < 0:
@@ -42,12 +46,12 @@ if D == 0 and N == 0:
     AZIMT = False
     
 if AZIMT == True:
-    print ("AZIM is " + str(AZIM))
+    print ("AZIM is " + str(AZIM) + "º")
 else: 
     print ("No Azimuth")
 
 ELEV = 90 - Atan((Z-61)/LP)
-print ("ELEV is " + str(ELEV))
+print ("ELEV is " + str(ELEV) + "º")
 
 Range = sqrt(LP*LP + (Z-61)*(Z-61))
-print ("Range is " + str(Range))
+print ("Range is " + str(Range) + "m")
