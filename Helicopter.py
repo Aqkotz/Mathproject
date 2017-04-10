@@ -1,4 +1,4 @@
-#Helicopter Math Project
+#Helicopter Math Project - Andrew Parker and Andy Kotz
 from math import cos, tan, atan, radians, degrees, sqrt, pow
 def Cos(a):
     return cos(radians(a))
@@ -24,6 +24,7 @@ N = Py - Ly
 D = Px - Lx
 LP = sqrt(D*D + N*N)
 
+AZIMT = True
 AZIM = Atan(N/D)
 if D < 0:
     AZIM += 180
@@ -38,8 +39,12 @@ if D < 0 and N == 0:
 if D > 0 and N == 0:
     AZIM = 0
 if D == 0 and N == 0:
-    AZIM = "undefined"
-print ("AZIM is " + str(AZIM))
+    AZIMT = False
+    
+if AZIMT == True:
+    print ("AZIM is " + str(AZIM))
+else: 
+    print ("No Azimuth")
 
 ELEV = 90 - Atan((Z-61)/LP)
 print ("ELEV is " + str(ELEV))
